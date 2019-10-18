@@ -72,6 +72,7 @@
             this.btnReturnIP.TabIndex = 3;
             this.btnReturnIP.Text = "Return to DHCP";
             this.btnReturnIP.UseVisualStyleBackColor = true;
+            this.btnReturnIP.Click += new System.EventHandler(this.BtnReturnIP_Click);
             // 
             // btnQuit
             // 
@@ -87,7 +88,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(298, 145);
+            this.ClientSize = new System.Drawing.Size(298, 147);
             this.Controls.Add(this.btnQuit);
             this.Controls.Add(this.btnReturnIP);
             this.Controls.Add(this.btnAbout);
