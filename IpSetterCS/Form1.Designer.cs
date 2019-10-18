@@ -28,11 +28,13 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             this.lblCurrentIPAddress = new System.Windows.Forms.Label();
             this.btnSetIP = new System.Windows.Forms.Button();
             this.btnAbout = new System.Windows.Forms.Button();
             this.btnReturnDHCP = new System.Windows.Forms.Button();
             this.btnQuit = new System.Windows.Forms.Button();
+            this.timer1 = new System.Windows.Forms.Timer(this.components);
             this.SuspendLayout();
             // 
             // lblCurrentIPAddress
@@ -84,6 +86,12 @@
             this.btnQuit.UseVisualStyleBackColor = true;
             this.btnQuit.Click += new System.EventHandler(this.BtnQuit_Click);
             // 
+            // timer1
+            // 
+            this.timer1.Enabled = true;
+            this.timer1.Interval = 300;
+            this.timer1.Tick += new System.EventHandler(this.Timer1_Tick);
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -110,6 +118,7 @@
         private System.Windows.Forms.Button btnAbout;
         private System.Windows.Forms.Button btnReturnDHCP;
         private System.Windows.Forms.Button btnQuit;
+        private System.Windows.Forms.Timer timer1;
     }
 }
 

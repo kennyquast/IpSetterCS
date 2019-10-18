@@ -33,7 +33,7 @@ namespace IpSetterCS
         {
 
             SetStaticIP();
-            lblCurrentIPAddress.Text = GetLocalIPv4(NetworkInterfaceType.Ethernet);
+           // lblCurrentIPAddress.Text = GetLocalIPv4(NetworkInterfaceType.Ethernet);
 
 
         }
@@ -128,6 +128,11 @@ namespace IpSetterCS
         private void BtnReturnDHCP_Click(object sender, EventArgs e)
         {
             SetDHCPIP();
+            //lblCurrentIPAddress.Text = GetLocalIPv4(NetworkInterfaceType.Ethernet);
+        }
+
+        private void Timer1_Tick(object sender, EventArgs e)
+        {
             lblCurrentIPAddress.Text = GetLocalIPv4(NetworkInterfaceType.Ethernet);
         }
     }
