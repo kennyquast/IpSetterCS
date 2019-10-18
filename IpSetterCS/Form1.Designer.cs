@@ -31,7 +31,7 @@
             this.lblCurrentIPAddress = new System.Windows.Forms.Label();
             this.btnSetIP = new System.Windows.Forms.Button();
             this.btnAbout = new System.Windows.Forms.Button();
-            this.btnReturnIP = new System.Windows.Forms.Button();
+            this.btnReturnDHCP = new System.Windows.Forms.Button();
             this.btnQuit = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
@@ -64,15 +64,15 @@
             this.btnAbout.UseVisualStyleBackColor = true;
             this.btnAbout.Click += new System.EventHandler(this.BtnAbout_Click);
             // 
-            // btnReturnIP
+            // btnReturnDHCP
             // 
-            this.btnReturnIP.Location = new System.Drawing.Point(147, 32);
-            this.btnReturnIP.Name = "btnReturnIP";
-            this.btnReturnIP.Size = new System.Drawing.Size(129, 51);
-            this.btnReturnIP.TabIndex = 3;
-            this.btnReturnIP.Text = "Return to DHCP";
-            this.btnReturnIP.UseVisualStyleBackColor = true;
-            this.btnReturnIP.Click += new System.EventHandler(this.BtnReturnIP_Click);
+            this.btnReturnDHCP.Location = new System.Drawing.Point(147, 32);
+            this.btnReturnDHCP.Name = "btnReturnDHCP";
+            this.btnReturnDHCP.Size = new System.Drawing.Size(129, 51);
+            this.btnReturnDHCP.TabIndex = 3;
+            this.btnReturnDHCP.Text = "Return to DHCP";
+            this.btnReturnDHCP.UseVisualStyleBackColor = true;
+            this.btnReturnDHCP.Click += new System.EventHandler(this.BtnReturnDHCP_Click);
             // 
             // btnQuit
             // 
@@ -90,7 +90,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(298, 147);
             this.Controls.Add(this.btnQuit);
-            this.Controls.Add(this.btnReturnIP);
+            this.Controls.Add(this.btnReturnDHCP);
             this.Controls.Add(this.btnAbout);
             this.Controls.Add(this.btnSetIP);
             this.Controls.Add(this.lblCurrentIPAddress);
@@ -108,7 +108,7 @@
         private System.Windows.Forms.Label lblCurrentIPAddress;
         private System.Windows.Forms.Button btnSetIP;
         private System.Windows.Forms.Button btnAbout;
-        private System.Windows.Forms.Button btnReturnIP;
+        private System.Windows.Forms.Button btnReturnDHCP;
         private System.Windows.Forms.Button btnQuit;
     }
 }

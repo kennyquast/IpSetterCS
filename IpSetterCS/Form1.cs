@@ -124,5 +124,11 @@ namespace IpSetterCS
             }
 
         }
+
+        private void BtnReturnDHCP_Click(object sender, EventArgs e)
+        {
+            SetDHCPIP();
+            lblCurrentIPAddress.Text = GetLocalIPv4(NetworkInterfaceType.Ethernet);
+        }
     }
 }
