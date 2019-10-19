@@ -11,31 +11,64 @@ namespace IpSetterCS
     {
         private System.Windows.Forms.NotifyIcon notifyIcon1;
         private System.Windows.Forms.ContextMenu contextMenu1;
-        private System.Windows.Forms.MenuItem menuItem1;
-      //private System.ComponentModel.IContainer components;
+        private System.Windows.Forms.MenuItem menuItemExit;
+        private System.Windows.Forms.MenuItem menuItemSetIP;
+        private System.Windows.Forms.MenuItem menuItemDHCP;
+        private System.Windows.Forms.MenuItem menuItemAbout;
+        private System.Windows.Forms.MenuItem menuItemCurrentIP;
+        //private System.ComponentModel.IContainer components;
 
         public Form1()
         {
 
-            this.components = new System.ComponentModel.Container();
-            this.contextMenu1 = new System.Windows.Forms.ContextMenu();
-            this.menuItem1 = new System.Windows.Forms.MenuItem();
+            components = new System.ComponentModel.Container();
+            contextMenu1 = new System.Windows.Forms.ContextMenu();
+            menuItemExit = new System.Windows.Forms.MenuItem();
+            menuItemSetIP = new System.Windows.Forms.MenuItem();
+            menuItemDHCP = new System.Windows.Forms.MenuItem();
+            menuItemAbout = new System.Windows.Forms.MenuItem();
+            menuItemCurrentIP = new System.Windows.Forms.MenuItem();
+
+
 
             // Initialize contextMenu1
-            this.contextMenu1.MenuItems.AddRange(
-            new System.Windows.Forms.MenuItem[] { this.menuItem1 });
+            contextMenu1.MenuItems.Add(menuItemCurrentIP);
+            contextMenu1.MenuItems.Add(menuItemSetIP);
+            contextMenu1.MenuItems.Add(menuItemDHCP);
+            contextMenu1.MenuItems.Add(menuItemAbout);
+            contextMenu1.MenuItems.Add(menuItemExit);
 
-            // Initialize menuItem1
-            this.menuItem1.Index = 0;
-            this.menuItem1.Text = "E&xit";
-            this.menuItem1.Click += new System.EventHandler(this.menuItem1_Click);
+            // Initialize Menu
+            menuItemCurrentIP.Index = 0;
+            menuItemCurrentIP.Text = "Current IP";
+            menuItemCurrentIP.Click += new System.EventHandler(menuItemCurrentIP_Click);
+
+            menuItemSetIP.Index = 1;
+            menuItemSetIP.Text = "Set IP Address";
+            menuItemSetIP.Click += new System.EventHandler(menuItemSetIP_Click);
+
+            menuItemDHCP.Index = 2;
+            menuItemDHCP.Text = "Return to DHCP";
+            menuItemDHCP.Click += new System.EventHandler(menuItemDHCP_Click);
+
+            menuItemAbout.Index = 3;
+            menuItemAbout.Text = "About";
+            menuItemAbout.Click += new System.EventHandler(menuItemAbout_Click);
+
+            menuItemExit.Index = 4;
+            menuItemExit.Text = "Exit";
+            menuItemExit.Click += new System.EventHandler(menuItemExit_Click);
+
+
+
+
 
             // Set up how the form should be displayed.
-            this.ClientSize = new System.Drawing.Size(292, 266);
-            this.Text = "Notify Icon Example";
+            ClientSize = new System.Drawing.Size(292, 266);
+            Text = "Notify Icon Example";
 
             // Create the NotifyIcon.
-            this.notifyIcon1 = new System.Windows.Forms.NotifyIcon(this.components);
+            notifyIcon1 = new System.Windows.Forms.NotifyIcon(this.components);
 
             // The Icon property sets the icon that will appear
             // in the systray for this application.
@@ -62,23 +95,47 @@ namespace IpSetterCS
             // Show the form when the user double clicks on the notify icon.
 
             // Set the WindowState to normal if the form is minimized.
-            if (this.WindowState == FormWindowState.Minimized)
-                this.WindowState = FormWindowState.Normal;
+            if (WindowState == FormWindowState.Minimized)
+                WindowState = FormWindowState.Normal;
 
             // Activate the form.
-            this.Activate();
+            Activate();
         }
 
-        private void menuItem1_Click(object Sender, EventArgs e)
+        private void menuItemExit_Click(object Sender, EventArgs e)
         {
-            // Close the form, which closes the application.
-            this.Close();
+            // Cleanup and close the app.
+            shutdown();
+
            
         }
+        private void menuItemSetIP_Click(object Sender, EventArgs e)
+        {
+            // Close the form, which closes the application.
+            SetStaticIP();
 
+        }
+        private void menuItemDHCP_Click(object Sender, EventArgs e)
+        {
+            // Close the form, which closes the application.
+            SetStaticIP();
+
+        }
+        private void menuItemAbout_Click(object Sender, EventArgs e)
+        {
+            // Close the form, which closes the application.
+            SetStaticIP();
+
+        }
+        private void menuItemCurrentIP_Click(object Sender, EventArgs e)
+        {
+            // Close the form, which closes the application.
+            SetStaticIP();
+
+        }
         private void BtnQuit_Click(object sender, EventArgs e)
         {
-            Application.Exit();
+            shutdown();
         }
 
         private void BtnAbout_Click(object sender, EventArgs e)
@@ -187,7 +244,14 @@ namespace IpSetterCS
             }
 
         }
+        public void shutdown()
+        {
+            notifyIcon1.Visible = false;
 
+            Close();
+            Application.Exit();
+
+        }
         private void BtnReturnDHCP_Click(object sender, EventArgs e)
         {
             SetDHCPIP();
