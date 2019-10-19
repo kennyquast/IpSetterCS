@@ -110,22 +110,20 @@ namespace IpSetterCS
         }
         private void MenuItemSetIP_Click(object Sender, EventArgs e)
         {
-            // Close the form, which closes the application.
+            // Set a Static IP
             SetStaticIP();
 
         }
         private void MenuItemDHCP_Click(object Sender, EventArgs e)
         {
-            // Close the form, which closes the application.
+            // Change back to DHCP
             SetDHCPIP();
 
         }
         private void MenuItemAbout_Click(object Sender, EventArgs e)
         {
-            // Close the form, which closes the application.
-            // Code Here
-
-        }
+            
+                    }
         private void MenuItemCurrentIP_Click(object Sender, EventArgs e)
         {
             // This is not a menu item just a display for the current IP.
