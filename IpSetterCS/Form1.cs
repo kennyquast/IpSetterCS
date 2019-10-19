@@ -1,5 +1,4 @@
 ﻿using System;
-using System.Drawing;
 using System.Management;
 using System.Net.NetworkInformation;
 using System.Net.Sockets;
@@ -40,24 +39,24 @@ namespace IpSetterCS
 
             // Initialize Menu
             menuItemCurrentIP.Index = 0;
-            menuItemCurrentIP.Text = "Current IP";
-            menuItemCurrentIP.Click += new System.EventHandler(menuItemCurrentIP_Click);
+            menuItemCurrentIP.Text = GetLocalIPv4(NetworkInterfaceType.Ethernet);
+            menuItemCurrentIP.Click += new System.EventHandler(MenuItemCurrentIP_Click);
 
             menuItemSetIP.Index = 1;
             menuItemSetIP.Text = "Set IP Address";
-            menuItemSetIP.Click += new System.EventHandler(menuItemSetIP_Click);
+            menuItemSetIP.Click += new System.EventHandler(MenuItemSetIP_Click);
 
             menuItemDHCP.Index = 2;
             menuItemDHCP.Text = "Return to DHCP";
-            menuItemDHCP.Click += new System.EventHandler(menuItemDHCP_Click);
+            menuItemDHCP.Click += new System.EventHandler(MenuItemDHCP_Click);
 
             menuItemAbout.Index = 3;
             menuItemAbout.Text = "About";
-            menuItemAbout.Click += new System.EventHandler(menuItemAbout_Click);
+            menuItemAbout.Click += new System.EventHandler(MenuItemAbout_Click);
 
             menuItemExit.Index = 4;
             menuItemExit.Text = "Exit";
-            menuItemExit.Click += new System.EventHandler(menuItemExit_Click);
+            menuItemExit.Click += new System.EventHandler(MenuItemExit_Click);
 
 
 
@@ -76,21 +75,22 @@ namespace IpSetterCS
 
             // The ContextMenu property sets the menu that will
             // appear when the systray icon is right clicked.
-            notifyIcon1.ContextMenu = this.contextMenu1;
+            notifyIcon1.ContextMenu = contextMenu1;
 
             // The Text property sets the text that will be displayed,
             // in a tooltip, when the mouse hovers over the systray icon.
-            notifyIcon1.Text = "Form1 (NotifyIcon example)";
+
+            notifyIcon1.Text = "IPSetter ver. ";
             notifyIcon1.Visible = true;
 
             // Handle the DoubleClick event to activate the form.
-            notifyIcon1.DoubleClick += new System.EventHandler(this.notifyIcon1_DoubleClick);
+            notifyIcon1.DoubleClick += new System.EventHandler(this.NotifyIcon1_DoubleClick);
             InitializeComponent();
         }
 
 
 
-        private void notifyIcon1_DoubleClick(object Sender, EventArgs e)
+        private void NotifyIcon1_DoubleClick(object Sender, EventArgs e)
         {
             // Show the form when the user double clicks on the notify icon.
 
@@ -102,36 +102,35 @@ namespace IpSetterCS
             Activate();
         }
 
-        private void menuItemExit_Click(object Sender, EventArgs e)
+        private void MenuItemExit_Click(object Sender, EventArgs e)
         {
             // Cleanup and close the app.
             shutdown();
-
-           
+            
         }
-        private void menuItemSetIP_Click(object Sender, EventArgs e)
+        private void MenuItemSetIP_Click(object Sender, EventArgs e)
         {
             // Close the form, which closes the application.
             SetStaticIP();
 
         }
-        private void menuItemDHCP_Click(object Sender, EventArgs e)
+        private void MenuItemDHCP_Click(object Sender, EventArgs e)
         {
             // Close the form, which closes the application.
-            SetStaticIP();
+            SetDHCPIP();
 
         }
-        private void menuItemAbout_Click(object Sender, EventArgs e)
+        private void MenuItemAbout_Click(object Sender, EventArgs e)
         {
             // Close the form, which closes the application.
-            SetStaticIP();
+            // Code Here
 
         }
-        private void menuItemCurrentIP_Click(object Sender, EventArgs e)
+        private void MenuItemCurrentIP_Click(object Sender, EventArgs e)
         {
-            // Close the form, which closes the application.
-            SetStaticIP();
-
+            // This is not a menu item just a display for the current IP.
+            //Might as well open the form if its clicked?
+            Activate();
         }
         private void BtnQuit_Click(object sender, EventArgs e)
         {
@@ -153,7 +152,7 @@ namespace IpSetterCS
         {
 
             SetStaticIP();
-           // lblCurrentIPAddress.Text = GetLocalIPv4(NetworkInterfaceType.Ethernet);
+            // lblCurrentIPAddress.Text = GetLocalIPv4(NetworkInterfaceType.Ethernet);
 
 
         }
@@ -210,7 +209,7 @@ namespace IpSetterCS
 
                         adapter.InvokeMethod("EnableStatic", newAddress, null);
                         //adapter.InvokeMethod("SetGateways", newGateway, null);
-                                            
+
                     }
                     catch (Exception ex)
                     {
@@ -235,7 +234,7 @@ namespace IpSetterCS
                     {
                         adapter.InvokeMethod("EnableDHCP", null);
 
-                                            }
+                    }
                     catch (Exception ex)
                     {
                         MessageBox.Show("Unable to Set IP : " + ex.Message);
@@ -261,6 +260,7 @@ namespace IpSetterCS
         private void Timer1_Tick(object sender, EventArgs e)
         {
             lblCurrentIPAddress.Text = GetLocalIPv4(NetworkInterfaceType.Ethernet);
+            menuItemCurrentIP.Text = GetLocalIPv4(NetworkInterfaceType.Ethernet);
         }
     }
 }
