@@ -1,3 +1,6 @@
+A tool to adjust IP Address and Subnet mask I use for working with PLC's and Cameras at work.
+
+
 This is a complete re-write of IPSetter (VB.NET) 
 Now I will  use this to try and further my understanding of C# language instead
 
