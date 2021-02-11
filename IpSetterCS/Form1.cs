@@ -85,7 +85,15 @@ namespace IpSetterCS
 
             // Handle the DoubleClick event to activate the form.
             notifyIcon1.DoubleClick += new System.EventHandler(this.NotifyIcon1_DoubleClick);
+            
+            // Set the WindowState to normal if the form is minimized.
+            if (WindowState == FormWindowState.Minimized)
+                WindowState = FormWindowState.Normal;
+
+            // Activate the form.
             InitializeComponent();
+            Activate();
+
         }
 
 
@@ -132,7 +140,10 @@ namespace IpSetterCS
         }
         private void BtnQuit_Click(object sender, EventArgs e)
         {
-            shutdown();
+            
+                Hide();
+                notifyIcon1.Visible = true;
+            
         }
 
         private void BtnAbout_Click(object sender, EventArgs e)
@@ -179,7 +190,7 @@ namespace IpSetterCS
         }
         public void SetStaticIP()
         {
-            string myDesc = "Intel(R) Ethernet Connection I217-V";
+            string myDesc = "Intel(R) Ethernet Connection I217-V"; // hard coded need to find a way to choose adapter.
             //string gateway = "192.168.0.1";
             string subnetMask = "255.255.0.0";
             string address = "10.102.20.254";
