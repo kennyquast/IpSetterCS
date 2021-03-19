@@ -8,6 +8,7 @@ using System.Windows.Forms;
 
 namespace IpSetterCS
 {
+    //Comments just to test GIT Syncing 03/19/21
     public partial class Form1 : Form
     {
         private System.Windows.Forms.NotifyIcon notifyIcon1;
@@ -147,15 +148,10 @@ namespace IpSetterCS
         {
 
             Hide();
-            notifyIcon1.Visible = true;
+            notifyIcon1.Visible = false;
             shutdown();
         }
 
-        private void BtnAbout_Click(object sender, EventArgs e)
-        {
-            MessageBox.Show("This is a down and dirty way for me to change my Ip address from DHCP to STATIC and back, while working on PLC's, Cameras and other equiptment at work", "About IP Setter v0.0.2.0");
-        }
-        
         private void Form1_Load(object sender, EventArgs e)
         {
             lblCurrentIPAddress.Text = GetLocalIPv4(NetworkInterfaceType.Ethernet);
@@ -195,10 +191,10 @@ namespace IpSetterCS
         }
         public void SetStaticIP()
         {
-            string myDesc = "Intel(R) Ethernet Connection I217-V"; // hard coded need to find a way to choose adapter.
+            string myDesc = "Intel(R) Ethernet Connection (2) I219-LM"; // hard coded need to find a way to choose adapter.
             //string gateway = "192.168.0.1";
             string subnetMask = "255.255.0.0";
-            string address = "10.102.20.254";
+            string address = "10.102.20.250";
 
             var adapterConfig = new ManagementClass("Win32_NetworkAdapterConfiguration");
             var networkCollection = adapterConfig.GetInstances();
@@ -265,12 +261,6 @@ namespace IpSetterCS
             Application.Exit();
 
         }
-        private void BtnReturnDHCP_Click(object sender, EventArgs e)
-        {
-            SetDHCPIP();
-            //lblCurrentIPAddress.Text = GetLocalIPv4(NetworkInterfaceType.Ethernet);
-        }
-
         private void Timer1_Tick(object sender, EventArgs e)
         {
             lblCurrentIPAddress.Text = GetLocalIPv4(NetworkInterfaceType.Ethernet);
@@ -324,7 +314,7 @@ namespace IpSetterCS
             string strSUB = string.Join(",", subnets);
             string extSUB = strSUB.Substring(0, strSUB.LastIndexOf(","));
             TextSubnet.Text = extSUB;
-
+            dnses = null;
             //string strGATE = string.Join(",", gateways);
             //string extGATE = strGATE.Substring(0, strGATE.LastIndexOf(","));
             //TextGateway.Text = extGATE;
@@ -344,7 +334,13 @@ namespace IpSetterCS
 
         private void BtnUpdate_Click(object sender, EventArgs e)
         {
-            
+            //WMIHelper.SetIP();  
+        }
+
+        private void BtnDHCP_Click(object sender, EventArgs e)
+        {
+            string NicName = (string)CboNic.SelectedItem;
+            WMIHelper.SetDHCP(NicName);
         }
     }
 }

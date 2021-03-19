@@ -34,8 +34,6 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form1));
             this.lblCurrentIPAddress = new System.Windows.Forms.Label();
             this.btnSetIP = new System.Windows.Forms.Button();
-            this.btnAbout = new System.Windows.Forms.Button();
-            this.btnReturnDHCP = new System.Windows.Forms.Button();
             this.btnQuit = new System.Windows.Forms.Button();
             this.timer1 = new System.Windows.Forms.Timer(this.components);
             this.CboNic = new System.Windows.Forms.ComboBox();
@@ -48,12 +46,13 @@
             this.TextGateway = new System.Windows.Forms.TextBox();
             this.button2 = new System.Windows.Forms.Button();
             this.label4 = new System.Windows.Forms.Label();
+            this.BtnDHCP = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // lblCurrentIPAddress
             // 
             this.lblCurrentIPAddress.AutoSize = true;
-            this.lblCurrentIPAddress.Location = new System.Drawing.Point(29, 379);
+            this.lblCurrentIPAddress.Location = new System.Drawing.Point(26, 238);
             this.lblCurrentIPAddress.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblCurrentIPAddress.Name = "lblCurrentIPAddress";
             this.lblCurrentIPAddress.Size = new System.Drawing.Size(46, 17);
@@ -62,43 +61,21 @@
             // 
             // btnSetIP
             // 
-            this.btnSetIP.Location = new System.Drawing.Point(22, 403);
+            this.btnSetIP.Location = new System.Drawing.Point(100, 184);
             this.btnSetIP.Margin = new System.Windows.Forms.Padding(4);
             this.btnSetIP.Name = "btnSetIP";
-            this.btnSetIP.Size = new System.Drawing.Size(172, 63);
+            this.btnSetIP.Size = new System.Drawing.Size(74, 32);
             this.btnSetIP.TabIndex = 1;
             this.btnSetIP.Text = "Set IP";
             this.btnSetIP.UseVisualStyleBackColor = true;
             this.btnSetIP.Click += new System.EventHandler(this.BtnSetIP_Click);
             // 
-            // btnAbout
-            // 
-            this.btnAbout.Location = new System.Drawing.Point(22, 474);
-            this.btnAbout.Margin = new System.Windows.Forms.Padding(4);
-            this.btnAbout.Name = "btnAbout";
-            this.btnAbout.Size = new System.Drawing.Size(172, 63);
-            this.btnAbout.TabIndex = 2;
-            this.btnAbout.Text = "About";
-            this.btnAbout.UseVisualStyleBackColor = true;
-            this.btnAbout.Click += new System.EventHandler(this.BtnAbout_Click);
-            // 
-            // btnReturnDHCP
-            // 
-            this.btnReturnDHCP.Location = new System.Drawing.Point(202, 403);
-            this.btnReturnDHCP.Margin = new System.Windows.Forms.Padding(4);
-            this.btnReturnDHCP.Name = "btnReturnDHCP";
-            this.btnReturnDHCP.Size = new System.Drawing.Size(172, 63);
-            this.btnReturnDHCP.TabIndex = 3;
-            this.btnReturnDHCP.Text = "Return to DHCP";
-            this.btnReturnDHCP.UseVisualStyleBackColor = true;
-            this.btnReturnDHCP.Click += new System.EventHandler(this.BtnReturnDHCP_Click);
-            // 
             // btnQuit
             // 
-            this.btnQuit.Location = new System.Drawing.Point(202, 474);
+            this.btnQuit.Location = new System.Drawing.Point(307, 223);
             this.btnQuit.Margin = new System.Windows.Forms.Padding(4);
             this.btnQuit.Name = "btnQuit";
-            this.btnQuit.Size = new System.Drawing.Size(172, 63);
+            this.btnQuit.Size = new System.Drawing.Size(102, 32);
             this.btnQuit.TabIndex = 4;
             this.btnQuit.Text = "Quit";
             this.btnQuit.UseVisualStyleBackColor = true;
@@ -196,11 +173,22 @@
             this.label4.TabIndex = 15;
             this.label4.Text = "Choose an adapter";
             // 
+            // BtnDHCP
+            // 
+            this.BtnDHCP.Location = new System.Drawing.Point(181, 184);
+            this.BtnDHCP.Name = "BtnDHCP";
+            this.BtnDHCP.Size = new System.Drawing.Size(125, 32);
+            this.BtnDHCP.TabIndex = 16;
+            this.BtnDHCP.Text = "Return to DHCP";
+            this.BtnDHCP.UseVisualStyleBackColor = true;
+            this.BtnDHCP.Click += new System.EventHandler(this.BtnDHCP_Click);
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(421, 557);
+            this.ClientSize = new System.Drawing.Size(421, 287);
+            this.Controls.Add(this.BtnDHCP);
             this.Controls.Add(this.label4);
             this.Controls.Add(this.button2);
             this.Controls.Add(this.TextGateway);
@@ -212,8 +200,6 @@
             this.Controls.Add(this.BtnUpdate);
             this.Controls.Add(this.CboNic);
             this.Controls.Add(this.btnQuit);
-            this.Controls.Add(this.btnReturnDHCP);
-            this.Controls.Add(this.btnAbout);
             this.Controls.Add(this.btnSetIP);
             this.Controls.Add(this.lblCurrentIPAddress);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
@@ -232,8 +218,6 @@
 
         private System.Windows.Forms.Label lblCurrentIPAddress;
         private System.Windows.Forms.Button btnSetIP;
-        private System.Windows.Forms.Button btnAbout;
-        private System.Windows.Forms.Button btnReturnDHCP;
         private System.Windows.Forms.Button btnQuit;
         private System.Windows.Forms.Timer timer1;
         private System.Windows.Forms.ComboBox CboNic;
@@ -246,6 +230,7 @@
         private System.Windows.Forms.TextBox TextGateway;
         private System.Windows.Forms.Button button2;
         private System.Windows.Forms.Label label4;
+        private System.Windows.Forms.Button BtnDHCP;
     }
 }
 
