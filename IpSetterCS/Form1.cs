@@ -1,4 +1,6 @@
-﻿using System;
+﻿using SwitchNetConfig;
+using System;
+using System.Collections;
 using System.Management;
 using System.Net.NetworkInformation;
 using System.Net.Sockets;
@@ -15,6 +17,8 @@ namespace IpSetterCS
         private System.Windows.Forms.MenuItem menuItemDHCP;
         private System.Windows.Forms.MenuItem menuItemAbout;
         private System.Windows.Forms.MenuItem menuItemCurrentIP;
+        private ArrayList _Profiles = new ArrayList();
+
         //private System.ComponentModel.IContainer components;
 
         public Form1()
@@ -85,7 +89,7 @@ namespace IpSetterCS
 
             // Handle the DoubleClick event to activate the form.
             notifyIcon1.DoubleClick += new System.EventHandler(this.NotifyIcon1_DoubleClick);
-            
+
             // Set the WindowState to normal if the form is minimized.
             if (WindowState == FormWindowState.Minimized)
                 WindowState = FormWindowState.Normal;
@@ -93,11 +97,12 @@ namespace IpSetterCS
             // Activate the form.
             InitializeComponent();
             Activate();
-
+            loadNICs();
         }
+    
 
-
-
+       
+        
         private void NotifyIcon1_DoubleClick(object Sender, EventArgs e)
         {
             // Show the form when the user double clicks on the notify icon.
@@ -114,7 +119,7 @@ namespace IpSetterCS
         {
             // Cleanup and close the app.
             shutdown();
-            
+
         }
         private void MenuItemSetIP_Click(object Sender, EventArgs e)
         {
@@ -130,8 +135,8 @@ namespace IpSetterCS
         }
         private void MenuItemAbout_Click(object Sender, EventArgs e)
         {
-            
-                    }
+
+        }
         private void MenuItemCurrentIP_Click(object Sender, EventArgs e)
         {
             // This is not a menu item just a display for the current IP.
@@ -140,17 +145,17 @@ namespace IpSetterCS
         }
         private void BtnQuit_Click(object sender, EventArgs e)
         {
-            
-                Hide();
-                notifyIcon1.Visible = true;
-            
+
+            Hide();
+            notifyIcon1.Visible = true;
+            shutdown();
         }
 
         private void BtnAbout_Click(object sender, EventArgs e)
         {
             MessageBox.Show("This is a down and dirty way for me to change my Ip address from DHCP to STATIC and back, while working on PLC's, Cameras and other equiptment at work", "About IP Setter v0.0.2.0");
         }
-
+        
         private void Form1_Load(object sender, EventArgs e)
         {
             lblCurrentIPAddress.Text = GetLocalIPv4(NetworkInterfaceType.Ethernet);
@@ -270,6 +275,76 @@ namespace IpSetterCS
         {
             lblCurrentIPAddress.Text = GetLocalIPv4(NetworkInterfaceType.Ethernet);
             menuItemCurrentIP.Text = GetLocalIPv4(NetworkInterfaceType.Ethernet);
+        }
+
+        private void comboBox1_SelectedIndexChanged(object sender, EventArgs e)
+        {
+           
+        }
+        private void loadNICs()
+        {
+            // get the NIC names
+            ArrayList nicNames = WMIHelper.GetNICNames();
+
+            // populate the NIC list
+            CboNic.Items.Clear();
+            foreach (string name in nicNames)
+                CboNic.Items.Add(name);
+
+            // if NIC found, select the first one
+            if (CboNic.Items.Count > 0)
+            {
+                CboNic.SelectedIndex = 0;
+                //GrpNIC.Enabled = true;   //Not Used
+            }
+        }
+
+ 
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            // Needs work, the NicCard method needs more data sent to it?
+            string[] ipAddresses;
+            string[] subnets;
+            string[] gateways;
+            string[] dnses;
+
+            // Load current IP configuration for the selected NIC
+            string nicName = (string)CboNic.SelectedItem;
+            WMIHelper.GetIP(nicName, out ipAddresses, out subnets, out gateways, out dnses);
+
+            // if network connection is disabled, no information will be available
+            if (null == ipAddresses || null == subnets || null == gateways || null == dnses)
+                return;
+            ////Trim up the strings to more usable formats
+            string strIP = string.Join(",", ipAddresses);
+            string extIP = strIP.Substring(0, strIP.LastIndexOf(","));
+            TextIP.Text = extIP;
+
+            string strSUB = string.Join(",", subnets);
+            string extSUB = strSUB.Substring(0, strSUB.LastIndexOf(","));
+            TextSubnet.Text = extSUB;
+
+            //string strGATE = string.Join(",", gateways);
+            //string extGATE = strGATE.Substring(0, strGATE.LastIndexOf(","));
+            //TextGateway.Text = extGATE;
+
+
+
+
+            // Show the setting
+
+            //TextSubnet.Text = string.Join(",", subnets);
+            TextGateway.Text = string.Join(",", gateways);
+            //TextDNS.Text = string.Join(",", dnses);
+
+
+
+        }
+
+        private void BtnUpdate_Click(object sender, EventArgs e)
+        {
+            
         }
     }
 }
