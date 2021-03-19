@@ -8,7 +8,6 @@ using System.Windows.Forms;
 
 namespace IpSetterCS
 {
-    //Comments just to test GIT Syncing 03/19/21
     public partial class Form1 : Form
     {
         private System.Windows.Forms.NotifyIcon notifyIcon1;
@@ -334,7 +333,15 @@ namespace IpSetterCS
 
         private void BtnUpdate_Click(object sender, EventArgs e)
         {
-            //WMIHelper.SetIP();  
+            string NicName = (string)CboNic.SelectedItem;
+            string IpAdd = TextIP.Text;
+            string SubNet = TextSubnet.Text;
+            string Gateway = TextGateway.Text;
+            string dnses = "";
+            //MessageBox.Show(NicName + IpAdd + SubNet + Gateway + dnses);
+            //need to add a try and catch here!
+            
+            WMIHelper.SetIP(NicName, IpAdd, SubNet, Gateway, dnses);  
         }
 
         private void BtnDHCP_Click(object sender, EventArgs e)
