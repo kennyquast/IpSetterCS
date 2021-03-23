@@ -33,8 +33,9 @@ namespace IpSetterCS
             this.button1 = new System.Windows.Forms.Button();
             this.AboutTextBox1 = new System.Windows.Forms.RichTextBox();
             this.BtnGithub = new System.Windows.Forms.Button();
-            this.label1 = new System.Windows.Forms.Label();
+            this.LblTitle = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
+            this.LblVersion = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // button1
@@ -66,14 +67,14 @@ namespace IpSetterCS
             this.BtnGithub.UseVisualStyleBackColor = true;
             this.BtnGithub.Click += new System.EventHandler(this.BtnGithub_Click);
             // 
-            // label1
+            // LblTitle
             // 
-            this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(12, 22);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(76, 17);
-            this.label1.TabIndex = 3;
-            this.label1.Text = "IPSetterCS";
+            this.LblTitle.AutoSize = true;
+            this.LblTitle.Location = new System.Drawing.Point(12, 22);
+            this.LblTitle.Name = "LblTitle";
+            this.LblTitle.Size = new System.Drawing.Size(76, 17);
+            this.LblTitle.TabIndex = 3;
+            this.LblTitle.Text = "IPSetterCS";
             // 
             // label2
             // 
@@ -84,12 +85,22 @@ namespace IpSetterCS
             this.label2.TabIndex = 4;
             this.label2.Text = "Coded by : Kenny Quast 2021";
             // 
+            // LblVersion
+            // 
+            this.LblVersion.AutoSize = true;
+            this.LblVersion.Location = new System.Drawing.Point(9, 271);
+            this.LblVersion.Name = "LblVersion";
+            this.LblVersion.Size = new System.Drawing.Size(46, 17);
+            this.LblVersion.TabIndex = 5;
+            this.LblVersion.Text = "label1";
+            // 
             // AboutForm
             // 
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None;
             this.ClientSize = new System.Drawing.Size(523, 322);
+            this.Controls.Add(this.LblVersion);
             this.Controls.Add(this.label2);
-            this.Controls.Add(this.label1);
+            this.Controls.Add(this.LblTitle);
             this.Controls.Add(this.BtnGithub);
             this.Controls.Add(this.AboutTextBox1);
             this.Controls.Add(this.button1);
@@ -112,7 +123,8 @@ namespace IpSetterCS
         private System.Windows.Forms.Button button1;
         private System.Windows.Forms.RichTextBox AboutTextBox1;
         private System.Windows.Forms.Button BtnGithub;
-        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Label LblTitle;
         private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.Label LblVersion;
     }
 }

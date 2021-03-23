@@ -19,7 +19,7 @@ namespace IpSetterCS
 
         private void AboutForm_Load(object sender, EventArgs e)
         {
-           
+            LblVersion.Text = "version: " + Application.ProductVersion.ToString();
             String AboutInfo = "A tool to adjust IP Address and Subnet mask I use for working with PLC's and Cameras at work. \n\nFind the source code on GitHub : https://github.com/kennyquast/IpSetterCS \n\nClick the GitHub Button below to access the source code.";
             AboutTextBox1.Text = AboutInfo;
 
@@ -43,5 +43,7 @@ namespace IpSetterCS
             System.Diagnostics.Process.Start(target);
 
         }
+
+
     }
 }

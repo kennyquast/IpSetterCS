@@ -6,7 +6,7 @@ using System.Runtime.InteropServices;
 // set of attributes. Change these attribute values to modify the information
 // associated with an assembly.
 [assembly: AssemblyTitle("IpSetterCS")]
-[assembly: AssemblyDescription("")]
+[assembly: AssemblyDescription("Simple way to update Local IP address from DHCP to Static and back.")]
 [assembly: AssemblyConfiguration("")]
 [assembly: AssemblyCompany("Quast Tech Solutions")]
 [assembly: AssemblyProduct("IpSetterCS")]
@@ -32,5 +32,5 @@ using System.Runtime.InteropServices;
 // You can specify all the values or you can default the Build and Revision Numbers
 // by using the '*' as shown below:
 // [assembly: AssemblyVersion("1.0.*")]
-[assembly: AssemblyVersion("0.0.2.0")]
-[assembly: AssemblyFileVersion("0.0.2.0")]
+[assembly: AssemblyVersion("1.0.0.0")]
+[assembly: AssemblyFileVersion("1.0.0.0")]
