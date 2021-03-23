@@ -14,3 +14,9 @@ The Class is used in the following project, and was too compocated for my needs.
 https://www.codeproject.com/Articles/6975/SwitchNetConfig-Laptop-users-quickly-switch-networ
 
 
+MalwareBytes detectes this software as MachineLearning/Anomalous.96%. According to them that means this code is 96% different from their known malware.
+So my 4% apparently similar code is triggering thier software.
+as always be cautious running unknown code, and i encourage you to FULLY read the source code here to know whats going on.
+
+A False positive will be submitted to see if that will go away.
+
