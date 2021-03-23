@@ -7,6 +7,8 @@ namespace SwitchNetConfig
 	/// <summary>
 	/// A Helper class which provides convenient methods to set/get network
 	/// configuration
+	/// See Below for ofiginal project this was used in
+	/// https://www.codeproject.com/Articles/6975/SwitchNetConfig-Laptop-users-quickly-switch-networ
 	/// </summary>
 	public class WMIHelper
 	{
