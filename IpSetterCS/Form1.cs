@@ -288,7 +288,7 @@ namespace IpSetterCS
 
         private void comboBox1_SelectedIndexChanged(object sender, EventArgs e)
         {
-            
+            RetSettings();
         }
         private void loadNICs()
         {
