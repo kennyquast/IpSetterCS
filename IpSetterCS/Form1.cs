@@ -134,7 +134,7 @@ namespace IpSetterCS
         private void BtnQuit_Click(object sender, EventArgs e)
         {
 
-            Hide();
+            //Hide();
             //notifyIcon1.Visible = false;
             shutdown();
         }
@@ -335,7 +335,11 @@ namespace IpSetterCS
             WMIHelper.SetDHCP(NicName);
         }
 
+       
 
-
+        private void exitToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            shutdown();
+        }
     }
 }
