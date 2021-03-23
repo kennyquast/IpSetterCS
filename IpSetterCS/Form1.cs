@@ -341,5 +341,11 @@ namespace IpSetterCS
         {
             shutdown();
         }
+
+        private void aboutToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            AboutForm frm = new AboutForm();
+            frm.ShowDialog();
+        }
     }
 }
