@@ -323,16 +323,35 @@ namespace IpSetterCS
             string SubNet = TextSubnet.Text;
             string Gateway = TextGateway.Text;
             string dnses = TextDNS.Text;
-            //MessageBox.Show(NicName + IpAdd + SubNet + Gateway + dnses);
-            //need to add a try and catch here!
-            
-            WMIHelper.SetIP(NicName, IpAdd, SubNet, Gateway, dnses);  
+            try
+            {
+                WMIHelper.SetIP(NicName, IpAdd, SubNet, Gateway, dnses);
+                RetSettings();
+
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Unable to set IP \nError : " + ex.Message);  
+            }
+
+             
         }
 
         private void BtnDHCP_Click(object sender, EventArgs e)
         {
-            string NicName = (string)CboNic.SelectedItem;
-            WMIHelper.SetDHCP(NicName);
+            try
+            {
+                string NicName = (string)CboNic.SelectedItem;
+                WMIHelper.SetDHCP(NicName);
+                RetSettings();
+
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Unable to set IP \nError : " + ex.Message);
+            }
+
+           
         }
 
        

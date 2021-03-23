@@ -40,7 +40,6 @@
             this.TextIP = new System.Windows.Forms.TextBox();
             this.TextSubnet = new System.Windows.Forms.TextBox();
             this.TextGateway = new System.Windows.Forms.TextBox();
-            this.button2 = new System.Windows.Forms.Button();
             this.label4 = new System.Windows.Forms.Label();
             this.BtnDHCP = new System.Windows.Forms.Button();
             this.TextDNS = new System.Windows.Forms.TextBox();
@@ -131,16 +130,6 @@
             this.TextGateway.Size = new System.Drawing.Size(309, 22);
             this.TextGateway.TabIndex = 13;
             // 
-            // button2
-            // 
-            this.button2.Location = new System.Drawing.Point(15, 233);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(75, 32);
-            this.button2.TabIndex = 14;
-            this.button2.Text = "Update";
-            this.button2.UseVisualStyleBackColor = true;
-            this.button2.Click += new System.EventHandler(this.button2_Click);
-            // 
             // label4
             // 
             this.label4.AutoSize = true;
@@ -214,7 +203,7 @@
             // aboutToolStripMenuItem
             // 
             this.aboutToolStripMenuItem.Name = "aboutToolStripMenuItem";
-            this.aboutToolStripMenuItem.Size = new System.Drawing.Size(224, 26);
+            this.aboutToolStripMenuItem.Size = new System.Drawing.Size(133, 26);
             this.aboutToolStripMenuItem.Text = "&About";
             this.aboutToolStripMenuItem.Click += new System.EventHandler(this.aboutToolStripMenuItem_Click);
             // 
@@ -227,7 +216,6 @@
             this.Controls.Add(this.label5);
             this.Controls.Add(this.BtnDHCP);
             this.Controls.Add(this.label4);
-            this.Controls.Add(this.button2);
             this.Controls.Add(this.TextGateway);
             this.Controls.Add(this.TextSubnet);
             this.Controls.Add(this.TextIP);
@@ -263,7 +251,6 @@
         private System.Windows.Forms.TextBox TextIP;
         private System.Windows.Forms.TextBox TextSubnet;
         private System.Windows.Forms.TextBox TextGateway;
-        private System.Windows.Forms.Button button2;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Button BtnDHCP;
         private System.Windows.Forms.TextBox TextDNS;
