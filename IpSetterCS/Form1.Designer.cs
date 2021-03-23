@@ -30,12 +30,8 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form1));
-            this.lblCurrentIPAddress = new System.Windows.Forms.Label();
-            this.btnSetIP = new System.Windows.Forms.Button();
             this.btnQuit = new System.Windows.Forms.Button();
-            this.timer1 = new System.Windows.Forms.Timer(this.components);
             this.CboNic = new System.Windows.Forms.ComboBox();
             this.BtnUpdate = new System.Windows.Forms.Button();
             this.label1 = new System.Windows.Forms.Label();
@@ -47,45 +43,20 @@
             this.button2 = new System.Windows.Forms.Button();
             this.label4 = new System.Windows.Forms.Label();
             this.BtnDHCP = new System.Windows.Forms.Button();
+            this.TextDNS = new System.Windows.Forms.TextBox();
+            this.label5 = new System.Windows.Forms.Label();
             this.SuspendLayout();
-            // 
-            // lblCurrentIPAddress
-            // 
-            this.lblCurrentIPAddress.AutoSize = true;
-            this.lblCurrentIPAddress.Location = new System.Drawing.Point(26, 238);
-            this.lblCurrentIPAddress.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.lblCurrentIPAddress.Name = "lblCurrentIPAddress";
-            this.lblCurrentIPAddress.Size = new System.Drawing.Size(46, 17);
-            this.lblCurrentIPAddress.TabIndex = 0;
-            this.lblCurrentIPAddress.Text = "label1";
-            // 
-            // btnSetIP
-            // 
-            this.btnSetIP.Location = new System.Drawing.Point(100, 184);
-            this.btnSetIP.Margin = new System.Windows.Forms.Padding(4);
-            this.btnSetIP.Name = "btnSetIP";
-            this.btnSetIP.Size = new System.Drawing.Size(74, 32);
-            this.btnSetIP.TabIndex = 1;
-            this.btnSetIP.Text = "Set IP";
-            this.btnSetIP.UseVisualStyleBackColor = true;
-            this.btnSetIP.Click += new System.EventHandler(this.BtnSetIP_Click);
             // 
             // btnQuit
             // 
-            this.btnQuit.Location = new System.Drawing.Point(307, 223);
+            this.btnQuit.Location = new System.Drawing.Point(329, 216);
             this.btnQuit.Margin = new System.Windows.Forms.Padding(4);
             this.btnQuit.Name = "btnQuit";
-            this.btnQuit.Size = new System.Drawing.Size(102, 32);
+            this.btnQuit.Size = new System.Drawing.Size(80, 32);
             this.btnQuit.TabIndex = 4;
             this.btnQuit.Text = "Quit";
             this.btnQuit.UseVisualStyleBackColor = true;
             this.btnQuit.Click += new System.EventHandler(this.BtnQuit_Click);
-            // 
-            // timer1
-            // 
-            this.timer1.Enabled = true;
-            this.timer1.Interval = 300;
-            this.timer1.Tick += new System.EventHandler(this.Timer1_Tick);
             // 
             // CboNic
             // 
@@ -98,9 +69,9 @@
             // 
             // BtnUpdate
             // 
-            this.BtnUpdate.Location = new System.Drawing.Point(307, 184);
+            this.BtnUpdate.Location = new System.Drawing.Point(234, 216);
             this.BtnUpdate.Name = "BtnUpdate";
-            this.BtnUpdate.Size = new System.Drawing.Size(102, 32);
+            this.BtnUpdate.Size = new System.Drawing.Size(88, 32);
             this.BtnUpdate.TabIndex = 6;
             this.BtnUpdate.Text = "Update IP";
             this.BtnUpdate.UseVisualStyleBackColor = true;
@@ -156,7 +127,7 @@
             // 
             // button2
             // 
-            this.button2.Location = new System.Drawing.Point(22, 184);
+            this.button2.Location = new System.Drawing.Point(22, 216);
             this.button2.Name = "button2";
             this.button2.Size = new System.Drawing.Size(75, 32);
             this.button2.TabIndex = 14;
@@ -175,19 +146,36 @@
             // 
             // BtnDHCP
             // 
-            this.BtnDHCP.Location = new System.Drawing.Point(181, 184);
+            this.BtnDHCP.Location = new System.Drawing.Point(103, 216);
             this.BtnDHCP.Name = "BtnDHCP";
             this.BtnDHCP.Size = new System.Drawing.Size(125, 32);
             this.BtnDHCP.TabIndex = 16;
             this.BtnDHCP.Text = "Return to DHCP";
             this.BtnDHCP.UseVisualStyleBackColor = true;
-            this.BtnDHCP.Click += new System.EventHandler(this.BtnDHCP_Click);
+            // 
+            // TextDNS
+            // 
+            this.TextDNS.Location = new System.Drawing.Point(100, 175);
+            this.TextDNS.Name = "TextDNS";
+            this.TextDNS.Size = new System.Drawing.Size(309, 22);
+            this.TextDNS.TabIndex = 18;
+            // 
+            // label5
+            // 
+            this.label5.AutoSize = true;
+            this.label5.Location = new System.Drawing.Point(19, 180);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(37, 17);
+            this.label5.TabIndex = 17;
+            this.label5.Text = "DNS";
             // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(421, 287);
+            this.ClientSize = new System.Drawing.Size(421, 275);
+            this.Controls.Add(this.TextDNS);
+            this.Controls.Add(this.label5);
             this.Controls.Add(this.BtnDHCP);
             this.Controls.Add(this.label4);
             this.Controls.Add(this.button2);
@@ -200,8 +188,6 @@
             this.Controls.Add(this.BtnUpdate);
             this.Controls.Add(this.CboNic);
             this.Controls.Add(this.btnQuit);
-            this.Controls.Add(this.btnSetIP);
-            this.Controls.Add(this.lblCurrentIPAddress);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "Form1";
@@ -215,11 +201,7 @@
         }
 
         #endregion
-
-        private System.Windows.Forms.Label lblCurrentIPAddress;
-        private System.Windows.Forms.Button btnSetIP;
         private System.Windows.Forms.Button btnQuit;
-        private System.Windows.Forms.Timer timer1;
         private System.Windows.Forms.ComboBox CboNic;
         private System.Windows.Forms.Button BtnUpdate;
         private System.Windows.Forms.Label label1;
@@ -231,6 +213,8 @@
         private System.Windows.Forms.Button button2;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Button BtnDHCP;
+        private System.Windows.Forms.TextBox TextDNS;
+        private System.Windows.Forms.Label label5;
     }
 }
 
