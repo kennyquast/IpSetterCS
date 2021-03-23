@@ -98,7 +98,7 @@ namespace IpSetterCS
             InitializeComponent();
            
             loadNICs();
-            Activate();
+            //Activate();
         }
     
 
