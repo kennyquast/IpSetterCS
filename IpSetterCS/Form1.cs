@@ -329,13 +329,13 @@ namespace IpSetterCS
             WMIHelper.SetIP(NicName, IpAdd, SubNet, Gateway, dnses);  
         }
 
-        //private void BtnDHCP_Click(object sender, EventArgs e)
-        //{
-        //    string NicName = (string)CboNic.SelectedItem;
-        //    WMIHelper.SetDHCP(NicName);
-        //}
+        private void BtnDHCP_Click(object sender, EventArgs e)
+        {
+            string NicName = (string)CboNic.SelectedItem;
+            WMIHelper.SetDHCP(NicName);
+        }
 
-    
+
 
     }
 }

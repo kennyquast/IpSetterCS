@@ -152,6 +152,7 @@
             this.BtnDHCP.TabIndex = 16;
             this.BtnDHCP.Text = "Return to DHCP";
             this.BtnDHCP.UseVisualStyleBackColor = true;
+            this.BtnDHCP.Click += new System.EventHandler(this.BtnDHCP_Click);
             // 
             // TextDNS
             // 
