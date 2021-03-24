@@ -146,13 +146,13 @@ namespace IpSetterCS
             }
             if (dhcpstatus == !true)
             {
-                string ExitMessage = "Are you sure you want to exit this program\nwith a Static IP still Set? \n\nThis could disable internet access when plugged back\ninto the network. \n\nTo Re-enable Internet access re-run this software and \nchoose RETURN to DHCP";
-                DialogResult dialogResult = MessageBox.Show(ExitMessage, "Are You sure you want to exit.", MessageBoxButtons.OKCancel, MessageBoxIcon.Warning);
-                if (dialogResult == DialogResult.OK)
+                string ExitMessage = "You have a Static IP set.\n\nThis could disable internet access when plugged back\ninto the network. \n\nTo Re-enable Internet access re-run this software and \nchoose Return to DHCP \n\nAre you sure you want to exit this program\nwith a Static IP still Set? ";
+                DialogResult dialogResult = MessageBox.Show(ExitMessage, "Are You sure you want to exit.", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
+                if (dialogResult == DialogResult.Yes)
                 {
                     shutdown();
                 }
-                else if (dialogResult == DialogResult.Cancel)
+                else if (dialogResult == DialogResult.No)
                 {
                     
                 }
@@ -391,23 +391,7 @@ namespace IpSetterCS
             frm.ShowDialog();
         }
 
-        private void button2_Click_1(object sender, EventArgs e)
-        {
-
-
-            bool dhcpstatus;
-            string NicName = (string)CboNic.SelectedItem;
-            WMIHelper.GetDHCP(NicName, out dhcpstatus);
-            if (dhcpstatus == true)
-            {
-                MessageBox.Show("Its True");
-            }
-        if (dhcpstatus == !true)
-            {
-                MessageBox.Show("Its False");
-            }
-        
-        }
+   
 
     }
 }

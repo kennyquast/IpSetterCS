@@ -49,7 +49,6 @@
             this.exitToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.helpToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.aboutToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.button2 = new System.Windows.Forms.Button();
             this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -75,7 +74,7 @@
             // 
             // BtnUpdate
             // 
-            this.BtnUpdate.Location = new System.Drawing.Point(227, 233);
+            this.BtnUpdate.Location = new System.Drawing.Point(96, 233);
             this.BtnUpdate.Name = "BtnUpdate";
             this.BtnUpdate.Size = new System.Drawing.Size(88, 32);
             this.BtnUpdate.TabIndex = 6;
@@ -142,7 +141,7 @@
             // 
             // BtnDHCP
             // 
-            this.BtnDHCP.Location = new System.Drawing.Point(96, 233);
+            this.BtnDHCP.Location = new System.Drawing.Point(190, 233);
             this.BtnDHCP.Name = "BtnDHCP";
             this.BtnDHCP.Size = new System.Drawing.Size(125, 32);
             this.BtnDHCP.TabIndex = 16;
@@ -208,22 +207,11 @@
             this.aboutToolStripMenuItem.Text = "&About";
             this.aboutToolStripMenuItem.Click += new System.EventHandler(this.aboutToolStripMenuItem_Click);
             // 
-            // button2
-            // 
-            this.button2.Location = new System.Drawing.Point(12, 233);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(75, 23);
-            this.button2.TabIndex = 20;
-            this.button2.Text = "button2";
-            this.button2.UseVisualStyleBackColor = true;
-            this.button2.Click += new System.EventHandler(this.button2_Click_1);
-            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(421, 288);
-            this.Controls.Add(this.button2);
             this.Controls.Add(this.TextDNS);
             this.Controls.Add(this.label5);
             this.Controls.Add(this.BtnDHCP);
@@ -272,7 +260,6 @@
         private System.Windows.Forms.ToolStripMenuItem exitToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem helpToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem aboutToolStripMenuItem;
-        private System.Windows.Forms.Button button2;
     }
 }
 
