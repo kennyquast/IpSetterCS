@@ -18,6 +18,7 @@ namespace IpSetterCS
         //private System.Windows.Forms.MenuItem menuItemAbout;
         //private System.Windows.Forms.MenuItem menuItemCurrentIP;
         private ArrayList _Profiles = new ArrayList();
+        
 
         //private System.ComponentModel.IContainer components;
 
@@ -134,9 +135,30 @@ namespace IpSetterCS
         private void BtnQuit_Click(object sender, EventArgs e)
         {
 
-            //Hide();
-            //notifyIcon1.Visible = false;
-            shutdown();
+
+            bool dhcpstatus;
+            string NicName = (string)CboNic.SelectedItem;
+            WMIHelper.GetDHCP(NicName, out dhcpstatus);
+            if (dhcpstatus == true)
+            {
+                //if DHCP is true... just exit
+                shutdown();
+            }
+            if (dhcpstatus == !true)
+            {
+                string ExitMessage = "Are you sure you want to exit this program\nwith a Static IP still Set? \n\nThis could disable internet access when plugged back\ninto the network. \n\nTo Re-enable Internet access re-run this software and \nchoose RETURN to DHCP";
+                DialogResult dialogResult = MessageBox.Show(ExitMessage, "Are You sure you want to exit.", MessageBoxButtons.OKCancel, MessageBoxIcon.Warning);
+                if (dialogResult == DialogResult.OK)
+                {
+                    shutdown();
+                }
+                else if (dialogResult == DialogResult.Cancel)
+                {
+                    
+                }
+            }
+
+           // shutdown();
         }
 
         private void Form1_Load(object sender, EventArgs e)
@@ -176,6 +198,7 @@ namespace IpSetterCS
             string[] subnets;
             string[] gateways;
             string[] dnses;
+            
 
             // Load current IP configuration for the selected NIC
             string nicName = (string)CboNic.SelectedItem;
@@ -205,7 +228,7 @@ namespace IpSetterCS
             //TextSubnet.Text = string.Join(",", subnets);
             TextGateway.Text = string.Join(",", gateways);
             TextDNS.Text = string.Join(",", dnses);
-
+           // MessageBox.Show(string.Join(",", dchpstatus));
 
 
         }
@@ -275,6 +298,7 @@ namespace IpSetterCS
         //    }
 
         //}
+
         public void shutdown()
         {
            // notifyIcon1.Visible = false;
@@ -366,5 +390,24 @@ namespace IpSetterCS
             AboutForm frm = new AboutForm();
             frm.ShowDialog();
         }
+
+        private void button2_Click_1(object sender, EventArgs e)
+        {
+
+
+            bool dhcpstatus;
+            string NicName = (string)CboNic.SelectedItem;
+            WMIHelper.GetDHCP(NicName, out dhcpstatus);
+            if (dhcpstatus == true)
+            {
+                MessageBox.Show("Its True");
+            }
+        if (dhcpstatus == !true)
+            {
+                MessageBox.Show("Its False");
+            }
+        
+        }
+
     }
 }

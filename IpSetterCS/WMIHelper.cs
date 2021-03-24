@@ -90,12 +90,52 @@ namespace SwitchNetConfig
 		/// <param name="subnets">Array of subnet masks</param>
 		/// <param name="gateways">Array of gateways</param>
 		/// <param name="dnses">Array of DNS IP</param>
+		/// 
+		public static void GetDHCP(string nicName, out Boolean dhcpstatus)
+		{
+			//try to get the DCHPEnabled property and pass it back 
+			dhcpstatus = false;
+			
+
+
+			ManagementClass mc = new ManagementClass("Win32_NetworkAdapterConfiguration");
+			ManagementObjectCollection moc = mc.GetInstances();
+
+			foreach (ManagementObject mo in moc)
+			{
+				// Make sure this is a IP enabled device. Not something like memory card or VM Ware
+				if ((bool)mo["ipEnabled"])
+				{
+					if (mo["Caption"].Equals(nicName))
+					{
+						if ((bool)mo["DHCPEnabled"] == true)
+						{
+							dhcpstatus = true;
+							
+						}
+						if ((bool)mo["DHCPEnabled"] != true)
+						{
+							dhcpstatus = false;
+
+						}
+						break;
+					}
+				}
+			}
+		}
+
+		/// <summary>
+		/// Returns if the network card is in DHCP mode
+		/// </summary>
+		/// <returns>Array list of string</returns>
 		public static void GetIP(string nicName, out string[] ipAdresses, out string[] subnets, out string[] gateways, out string[] dnses)
 		{
+		//try to get the DCHPEnabled property and pass it back to the array
 			ipAdresses = null;
 			subnets = null;
 			gateways = null;
 			dnses = null;
+			
 
 			ManagementClass mc = new ManagementClass("Win32_NetworkAdapterConfiguration");
 			ManagementObjectCollection moc = mc.GetInstances();
@@ -111,7 +151,7 @@ namespace SwitchNetConfig
 						subnets = (string[])mo["IPSubnet"];
 						gateways = (string[])mo["DefaultIPGateway"];
 						dnses = (string[])mo["DNSServerSearchOrder"];
-
+						
 						break;
 					}
 				}
