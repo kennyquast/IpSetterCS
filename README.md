@@ -18,5 +18,5 @@ MalwareBytes detectes this software as MachineLearning/Anomalous.96%. According 
 So my 4% apparently similar code is triggering thier software.
 as always be cautious running unknown code, and i encourage you to FULLY read the source code here to know whats going on.
 
-A False positive will be submitted to see if that will go away.
+Update: Malware bytes only seems to flag this while running from Code. Once its compiled it doesnt seem to have an issue with it.
 
