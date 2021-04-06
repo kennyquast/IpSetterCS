@@ -30,7 +30,6 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form1));
             this.btnQuit = new System.Windows.Forms.Button();
             this.CboNic = new System.Windows.Forms.ComboBox();
@@ -51,13 +50,13 @@
             this.helpToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.aboutToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.LblCurrentIp = new System.Windows.Forms.Label();
-            this.timer1 = new System.Windows.Forms.Timer(this.components);
+            this.BtnReloadNICS = new System.Windows.Forms.Button();
             this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
             // btnQuit
             // 
-            this.btnQuit.Location = new System.Drawing.Point(322, 233);
+            this.btnQuit.Location = new System.Drawing.Point(329, 272);
             this.btnQuit.Margin = new System.Windows.Forms.Padding(4);
             this.btnQuit.Name = "btnQuit";
             this.btnQuit.Size = new System.Drawing.Size(80, 32);
@@ -77,7 +76,7 @@
             // 
             // BtnUpdate
             // 
-            this.BtnUpdate.Location = new System.Drawing.Point(96, 233);
+            this.BtnUpdate.Location = new System.Drawing.Point(103, 272);
             this.BtnUpdate.Name = "BtnUpdate";
             this.BtnUpdate.Size = new System.Drawing.Size(88, 32);
             this.BtnUpdate.TabIndex = 6;
@@ -88,7 +87,7 @@
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(12, 111);
+            this.label1.Location = new System.Drawing.Point(19, 150);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(75, 17);
             this.label1.TabIndex = 7;
@@ -97,7 +96,7 @@
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(12, 140);
+            this.label2.Location = new System.Drawing.Point(19, 179);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(53, 17);
             this.label2.TabIndex = 8;
@@ -106,7 +105,7 @@
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(12, 169);
+            this.label3.Location = new System.Drawing.Point(19, 208);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(63, 17);
             this.label3.TabIndex = 9;
@@ -114,21 +113,21 @@
             // 
             // TextIP
             // 
-            this.TextIP.Location = new System.Drawing.Point(93, 108);
+            this.TextIP.Location = new System.Drawing.Point(100, 147);
             this.TextIP.Name = "TextIP";
             this.TextIP.Size = new System.Drawing.Size(309, 22);
             this.TextIP.TabIndex = 11;
             // 
             // TextSubnet
             // 
-            this.TextSubnet.Location = new System.Drawing.Point(93, 135);
+            this.TextSubnet.Location = new System.Drawing.Point(100, 174);
             this.TextSubnet.Name = "TextSubnet";
             this.TextSubnet.Size = new System.Drawing.Size(309, 22);
             this.TextSubnet.TabIndex = 12;
             // 
             // TextGateway
             // 
-            this.TextGateway.Location = new System.Drawing.Point(93, 164);
+            this.TextGateway.Location = new System.Drawing.Point(100, 203);
             this.TextGateway.Name = "TextGateway";
             this.TextGateway.Size = new System.Drawing.Size(309, 22);
             this.TextGateway.TabIndex = 13;
@@ -144,7 +143,7 @@
             // 
             // BtnDHCP
             // 
-            this.BtnDHCP.Location = new System.Drawing.Point(190, 233);
+            this.BtnDHCP.Location = new System.Drawing.Point(197, 272);
             this.BtnDHCP.Name = "BtnDHCP";
             this.BtnDHCP.Size = new System.Drawing.Size(125, 32);
             this.BtnDHCP.TabIndex = 16;
@@ -154,7 +153,7 @@
             // 
             // TextDNS
             // 
-            this.TextDNS.Location = new System.Drawing.Point(93, 192);
+            this.TextDNS.Location = new System.Drawing.Point(100, 231);
             this.TextDNS.Name = "TextDNS";
             this.TextDNS.Size = new System.Drawing.Size(309, 22);
             this.TextDNS.TabIndex = 18;
@@ -162,7 +161,7 @@
             // label5
             // 
             this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(12, 197);
+            this.label5.Location = new System.Drawing.Point(19, 236);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(37, 17);
             this.label5.TabIndex = 17;
@@ -213,23 +212,28 @@
             // LblCurrentIp
             // 
             this.LblCurrentIp.AutoSize = true;
-            this.LblCurrentIp.Location = new System.Drawing.Point(12, 283);
+            this.LblCurrentIp.Location = new System.Drawing.Point(12, 306);
             this.LblCurrentIp.Name = "LblCurrentIp";
             this.LblCurrentIp.Size = new System.Drawing.Size(46, 17);
             this.LblCurrentIp.TabIndex = 20;
             this.LblCurrentIp.Text = "label6";
             // 
-            // timer1
+            // BtnReloadNICS
             // 
-            this.timer1.Enabled = true;
-            this.timer1.Interval = 2500;
-            this.timer1.Tick += new System.EventHandler(this.timer1_Tick);
+            this.BtnReloadNICS.Location = new System.Drawing.Point(266, 109);
+            this.BtnReloadNICS.Name = "BtnReloadNICS";
+            this.BtnReloadNICS.Size = new System.Drawing.Size(136, 32);
+            this.BtnReloadNICS.TabIndex = 21;
+            this.BtnReloadNICS.Text = "Refresh Adapters";
+            this.BtnReloadNICS.UseVisualStyleBackColor = true;
+            this.BtnReloadNICS.Click += new System.EventHandler(this.BtnReloadNICS_Click);
             // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(421, 309);
+            this.ClientSize = new System.Drawing.Size(421, 332);
+            this.Controls.Add(this.BtnReloadNICS);
             this.Controls.Add(this.LblCurrentIp);
             this.Controls.Add(this.TextDNS);
             this.Controls.Add(this.label5);
@@ -280,7 +284,7 @@
         private System.Windows.Forms.ToolStripMenuItem helpToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem aboutToolStripMenuItem;
         private System.Windows.Forms.Label LblCurrentIp;
-        private System.Windows.Forms.Timer timer1;
+        private System.Windows.Forms.Button BtnReloadNICS;
     }
 }
 

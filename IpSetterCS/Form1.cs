@@ -392,7 +392,9 @@ namespace IpSetterCS
             frm.ShowDialog();
         }
 
-        private void timer1_Tick(object sender, EventArgs e)
+  
+
+        private void BtnReloadNICS_Click(object sender, EventArgs e)
         {
             loadNICs();
         }
