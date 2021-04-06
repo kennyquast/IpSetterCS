@@ -211,6 +211,7 @@ namespace IpSetterCS
             string strIP = string.Join(",", ipAddresses);
             string extIP = strIP.Substring(0, strIP.LastIndexOf(","));
             TextIP.Text = extIP;
+            LblCurrentIp.Text = "Current IP: " + extIP;
 
             string strSUB = string.Join(",", subnets);
             string extSUB = strSUB.Substring(0, strSUB.LastIndexOf(","));
@@ -391,7 +392,6 @@ namespace IpSetterCS
             frm.ShowDialog();
         }
 
-   
-
+        
     }
 }

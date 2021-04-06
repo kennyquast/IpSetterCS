@@ -49,6 +49,7 @@
             this.exitToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.helpToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.aboutToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.LblCurrentIp = new System.Windows.Forms.Label();
             this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -78,7 +79,7 @@
             this.BtnUpdate.Name = "BtnUpdate";
             this.BtnUpdate.Size = new System.Drawing.Size(88, 32);
             this.BtnUpdate.TabIndex = 6;
-            this.BtnUpdate.Text = "Update IP";
+            this.BtnUpdate.Text = "Set IP";
             this.BtnUpdate.UseVisualStyleBackColor = true;
             this.BtnUpdate.Click += new System.EventHandler(this.BtnUpdate_Click);
             // 
@@ -207,11 +208,21 @@
             this.aboutToolStripMenuItem.Text = "&About";
             this.aboutToolStripMenuItem.Click += new System.EventHandler(this.aboutToolStripMenuItem_Click);
             // 
+            // LblCurrentIp
+            // 
+            this.LblCurrentIp.AutoSize = true;
+            this.LblCurrentIp.Location = new System.Drawing.Point(12, 283);
+            this.LblCurrentIp.Name = "LblCurrentIp";
+            this.LblCurrentIp.Size = new System.Drawing.Size(46, 17);
+            this.LblCurrentIp.TabIndex = 20;
+            this.LblCurrentIp.Text = "label6";
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(421, 288);
+            this.ClientSize = new System.Drawing.Size(421, 309);
+            this.Controls.Add(this.LblCurrentIp);
             this.Controls.Add(this.TextDNS);
             this.Controls.Add(this.label5);
             this.Controls.Add(this.BtnDHCP);
@@ -260,6 +271,7 @@
         private System.Windows.Forms.ToolStripMenuItem exitToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem helpToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem aboutToolStripMenuItem;
+        private System.Windows.Forms.Label LblCurrentIp;
     }
 }
 
